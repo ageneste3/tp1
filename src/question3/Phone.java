@@ -2,6 +2,7 @@ package question3;
 
 public class Phone extends Device implements MobileNetwork {
     private int batteryLevel;
+    private String networkType;
 
     public Phone() {
     }
@@ -27,12 +28,21 @@ public class Phone extends Device implements MobileNetwork {
         this.batteryLevel = batteryLevel;
     }
 
-    public String getNetworkType() { return networkType; }
+    @Override
+    public String getNetworkType() {
+        return networkType;
+    }
 
-    public void setNetworkType(String networkType) { this.networkType = networkType; }
+    @Override
+    public void setNetworkType(String networkType) {
+        this.networkType = networkType;
+    }
 
     @Override
     public String networkType() {
-    }
+        MobileNetwork mobileNetwork = new Phone();
+        mobileNetwork.setNetworkType("4G");
 
+        return mobileNetwork.getNetworkType();
+    }
 }
